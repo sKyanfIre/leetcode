@@ -55,9 +55,12 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean isPowerOfTwo(int n) {
+//        if(n == 0 || n == Integer.MIN_VALUE)
+//            return false;
+//        return (n & (n-1)) == 0;
         if(n == 0 || n == Integer.MIN_VALUE)
             return false;
-        return (n & (n-1)) == 0;
+        return (n & -n) == n;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
