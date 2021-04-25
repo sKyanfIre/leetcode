@@ -66,19 +66,21 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int removeElement(int[] nums, int val) {
-        for(int idx = 0 ; idx < nums.length;idx++) {
-            if(val == nums[idx]) {
-                // start remove
-                for(int real = idx+1;real <nums.length;real++){
-                    if(nums[real] != val){
-                       nums[idx] = nums[real];
-                       idx++;
-                    }
-                }
-                return idx;
+        int idx = 0;
+        boolean flag = true;
+        for(int real=0; real < nums.length;real++) {
+
+            if(val != nums[idx] && flag) {
+                idx++;
+                continue;
+            }
+            if(nums[real] != val) {
+                flag = false;
+               nums[idx] = nums[real];
+               idx++;
             }
         }
-        return nums.length;
+        return idx;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
